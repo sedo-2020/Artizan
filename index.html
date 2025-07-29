@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرتيزان - متجر المنتجات اليدوية الفاخرة</title>
+    <link rel="stylesheet" href="Stayels.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-brand" onclick="scrollToTop()">
+                <i class="fas fa-gem"></i>
+                <span>أرتيزان</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#products" class="nav-link">المنتجات</a></li>
+                <li><a href="#about" class="nav-link">من نحن</a></li>
+                <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">الرئيسية</a></li>
+                <li><a href="#products" onclick="closeMobileMenu()">المنتجات</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">من نحن</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button onclick="toggleCart()" class="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع:</span>
+                <span id="cartTotal">0 ريال</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">إتمام الطلب</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>اكتشف روعة الحرف اليدوية</h1>
+                <p>منتجات فريدة من نوعها مصنوعة بأيدي ماهرة، تجمع بين الأصالة والأناقة لتضيف لمسة خاصة لمنزلك</p>
+                <button class="cta-button" onclick="scrollToSection('products')">تسوق الآن</button>
+            </div>
+            <div class="hero-image">
+                <div class="ornate-frame">
+                    <div class="handmade-item">
+                        <div class="embroidery-pattern"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>مجموعة منتجاتنا الفاخرة</h2>
+            
+            <!-- Search and Filter Controls -->
+            <div class="products-controls">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن منتج..." oninput="filterProducts()">
+                </div>
+                <div class="sort-controls">
+                    <select id="sortSelect" onchange="filterProducts()">
+                        <option value="featured">الأكثر تميزاً</option>
+                        <option value="price-low">السعر: من الأقل للأعلى</option>
+                        <option value="price-high">السعر: من الأعلى للأقل</option>
+                        <option value="rating">الأعلى تقييماً</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories" id="categories">
+                <!-- Categories will be added here -->
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be added here -->
+            </div>
+
+            <!-- Products Count -->
+            <div class="products-count">
+                <p id="productsCount">عرض 0 من 0 منتج</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>قصتنا</h2>
+                    <p>في أرتيزان، نؤمن بأن كل قطعة يدوية تحكي قصة فريدة. بدأت رحلتنا بشغف بسيط بالحرف اليدوية التقليدية ورغبة في مشاركة هذا الشغف مع محبي الفن والأناقة حول العالم.</p>
+                    <p>نختار منتجاتنا بعناية من حرفيين ماهرين، مما يضمن ليس فقط أعلى جودة ولكن أيضاً دعم المجتمعات المحلية والحفاظ على التراث الثقافي للأجيال القادمة.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-hands"></i>
+                            <h4>صناعة يدوية</h4>
+                            <p>كل قطعة مصنوعة يدوياً</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h4>جودة عالية</h4>
+                            <p>اختيار دقيق للمواد</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h4>توصيل سريع</h4>
+                            <p>وصول آمن لمنزلك</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="workshop-scene"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>زورنا</h4>
+                            <p>١٢٣ شارع الحرفيين<br>الرياض، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>اتصل بنا</h4>
+                            <p>+٩٦٦ ٥٠ ١٢٣ ٤٥٦٧</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>راسلنا</h4>
+                            <p>info@artisan.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContact(event)">
+                    <input type="text" placeholder="اسمك" required>
+                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <textarea placeholder="رسالتك" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-gem"></i>
+                        <span>أرتيزان</span>
+                    </div>
+                    <p>نحافظ على تراث الحرف اليدوية، قطعة واحدة في كل مرة.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ٢٠٢٤ أرتيزان. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // Products Data
+        const products = [
+            // الخزف والفخار
+            {
+                id: 1,
+                name: "وعاء خزفي مزخرف",
+                description: "وعاء فخاري مصنوع يدوياً بتصميم فيكتوري كلاسيكي",
+                price: 250,
+                category: "خزف",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.8,
+                reviews: 24,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 2,
+                name: "مزهرية خزفية كلاسيكية",
+                description: "مزهرية خزفية مصنوعة يدوياً بتصميم فيكتوري رائع",
+                price: 280,
+                category: "خزف",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.9,
+                reviews: 31,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 3,
+                name: "طقم أواني خزفية",
+                description: "طقم من 6 أواني خزفية مصنوعة يدوياً، مثالية للعائلة",
+                price: 450,
+                category: "خزف",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.7,
+                reviews: 18,
+                inStock: true,
+                featured: false
+            },
+            // النسيج والتطريز
+            {
+                id: 4,
+                name: "وسادة مطرزة باليد",
+                description: "وسادة فاخرة مطرزة بتصاميم عربية تقليدية",
+                price: 180,
+                category: "نسيج",
+                image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400",
+                rating: 4.6,
+                reviews: 42,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 5,
+                name: "سجادة منسوجة يدوياً",
+                description: "سجادة فاخرة منسوجة باليد بتصميم عربي أصيل",
+                price: 450,
+                category: "نسيج",
+                image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400",
+                rating: 4.9,
+                reviews: 28,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 6,
+                name: "مفرش طاولة مطرز",
+                description: "مفرش طاولة مطرز يدوياً بتصاميم فيكتورية أنيقة",
+                price: 320,
+                category: "نسيج",
+                image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=400",
+                rating: 4.5,
+                reviews: 15,
+                inStock: true,
+                featured: false
+            },
+            // الخشب والمنحوتات
+            {
+                id: 7,
+                name: "صندوق خشبي منحوت",
+                description: "صندوق خشبي منحوت يدوياً بتصميم فيكتوري أنيق",
+                price: 320,
+                category: "خشب",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400",
+                rating: 4.7,
+                reviews: 35,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 8,
+                name: "إطار مرآة خشبي منحوت",
+                description: "إطار مرآة خشبي منحوت يدوياً بتصميم فيكتوري فاخر",
+                price: 420,
+                category: "خشب",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400",
+                rating: 4.8,
+                reviews: 19,
+                inStock: true,
+                featured: false
+            },
+            // الجلود والحقائب
+            {
+                id: 9,
+                name: "حقيبة جلدية يدوية",
+                description: "حقيبة جلدية مصنوعة يدوياً بتصميم كلاسيكي أنيق",
+                price: 380,
+                category: "جلد",
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400",
+                rating: 4.7,
+                reviews: 45,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 10,
+                name: "محفظة جلدية منحوتة",
+                description: "محفظة جلدية منحوتة يدوياً بتصاميم عربية تقليدية",
+                price: 220,
+                category: "جلد",
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400",
+                rating: 4.5,
+                reviews: 38,
+                inStock: true,
+                featured: false
+            },
+            // المعادن والمجوهرات
+            {
+                id: 11,
+                name: "شمعدان نحاسي منحوت",
+                description: "شمعدان نحاسي منحوت يدوياً بتصميم فيكتوري فاخر",
+                price: 350,
+                category: "معادن",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.8,
+                reviews: 33,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 12,
+                name: "إبريق شاي فضي منحوت",
+                description: "إبريق شاي فضي منحوت يدوياً بتصميم كلاسيكي أنيق",
+                price: 680,
+                category: "معادن",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.9,
+                reviews: 17,
+                inStock: true,
+                featured: false
+            },
+            // الزجاج والكريستال
+            {
+                id: 13,
+                name: "مزهرية زجاجية منفوخة",
+                description: "مزهرية زجاجية منفوخة يدوياً بتصميم فيكتوري رائع",
+                price: 280,
+                category: "زجاج",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.7,
+                reviews: 41,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 14,
+                name: "طقم كؤوس كريستال",
+                description: "طقم من 6 كؤوس كريستال منحوتة يدوياً",
+                price: 520,
+                category: "زجاج",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.8,
+                reviews: 23,
+                inStock: true,
+                featured: false
+            },
+            // الإضاءة والشمعدانات
+            {
+                id: 15,
+                name: "مصباح طاولة فيكتوري",
+                description: "مصباح طاولة فيكتوري مصنوع يدوياً من النحاس والزجاج",
+                price: 450,
+                category: "إضاءة",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.9,
+                reviews: 31,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 16,
+                name: "شمعدان برونزي منحوت",
+                description: "شمعدان برونزي منحوت يدوياً بتصميم فيكتوري فاخر",
+                price: 320,
+                category: "إضاءة",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.6,
+                reviews: 27,
+                inStock: true,
+                featured: false
+            },
+            // الديكور والتحف
+            {
+                id: 17,
+                name: "ساعة حائط فيكتورية",
+                description: "ساعة حائط فيكتورية مصنوعة يدوياً من الخشب والنحاس",
+                price: 780,
+                category: "ديكور",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.8,
+                reviews: 19,
+                inStock: true,
+                featured: true
+            },
+            {
+                id: 18,
+                name: "مرآة إطار خشبي منحوت",
+                description: "مرآة بإطار خشبي منحوت يدوياً بتصميم فيكتوري أنيق",
+                price: 650,
+                category: "ديكور",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+                rating: 4.7,
+                reviews: 25,
+                inStock: true,
+                featured: false
+            }
+        ];
+
+        const categories = [
+            { id: "all", name: "جميع المنتجات", icon: "fas fa-gem" },
+            { id: "خزف", name: "الخزف والفخار", icon: "fas fa-mug-hot" },
+            { id: "نسيج", name: "النسيج والتطريز", icon: "fas fa-scroll" },
+            { id: "خشب", name: "الخشب والمنحوتات", icon: "fas fa-tree" },
+            { id: "جلد", name: "الجلود والحقائب", icon: "fas fa-briefcase" },
+            { id: "معادن", name: "المعادن والمجوهرات", icon: "fas fa-gem" },
+            { id: "زجاج", name: "الزجاج والكريستال", icon: "fas fa-wine-glass" },
+            { id: "إضاءة", name: "الإضاءة والشمعدانات", icon: "fas fa-lightbulb" },
+            { id: "ديكور", name: "الديكور والتحف", icon: "fas fa-home" }
+        ];
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let selectedCategory = 'all';
+        let searchTerm = '';
+        let sortBy = 'featured';
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCategories();
+            renderProducts();
+            updateCartBadge();
+            setupScrollEffects();
+            setupNavigation();
+        });
+
+        // Render categories
+        function renderCategories() {
+            const categoriesContainer = document.getElementById('categories');
+            categoriesContainer.innerHTML = categories.map(category => `
+                <button class="category-btn ${category.id === selectedCategory ? 'active' : ''}" 
+                        onclick="selectCategory('${category.id}')">
+                    <i class="${category.icon}"></i>
+                    <span>${category.name}</span>
+                </button>
+            `).join('');
+        }
+
+        // Render products
+        function renderProducts() {
+            let filteredProducts = filterProducts();
+            const productsGrid = document.getElementById('productsGrid');
+            const productsCount = document.getElementById('productsCount');
+
+            if (filteredProducts.length === 0) {
+                productsGrid.innerHTML = `
+                    <div class="no-products">
+                        <i class="fas fa-search"></i>
+                        <h3>لا توجد منتجات</h3>
+                        <p>جرب تغيير الفلتر أو البحث عن شيء آخر</p>
+                    </div>
+                `;
+            } else {
+                productsGrid.innerHTML = filteredProducts.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                            ${product.featured ? `
+                                <div class="featured-badge">
+                                    <i class="fas fa-star"></i>
+                                    مميز
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    ${generateStars(product.rating)}
+                                </div>
+                                <span class="rating-text">(${product.reviews} تقييم)</span>
+                            </div>
+                            <div class="product-price">${product.price} ريال</div>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''}>
+                                ${product.inStock ? `
+                                    <i class="fas fa-shopping-cart"></i>
+                                    أضف للسلة
+                                ` : 'غير متوفر'}
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            productsCount.textContent = `عرض ${filteredProducts.length} من ${products.length} منتج`;
+        }
+
+        // Filter products
+        function filterProducts() {
+            let filtered = products;
+
+            // Filter by category
+            if (selectedCategory !== 'all') {
+                filtered = filtered.filter(product => product.category === selectedCategory);
+            }
+
+            // Filter by search term
+            if (searchTerm) {
+                filtered = filtered.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+
+            // Sort products
+            switch (sortBy) {
+                case 'price-low':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filtered.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'featured':
+                    filtered.sort((a, b) => b.featured - a.featured);
+                    break;
+            }
+
+            return filtered;
+        }
+
+        // Select category
+        function selectCategory(categoryId) {
+            selectedCategory = categoryId;
+            renderCategories();
+            renderProducts();
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            updateCartDisplay();
+            showToast(`تم إضافة ${product.name} إلى السلة!`, 'success');
+        }
+
+        // Update cart badge
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            badge.textContent = totalItems;
+            badge.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+
+        // Toggle cart sidebar
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            cartSidebar.classList.toggle('active');
+            updateCartDisplay();
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">السلة فارغة</p>';
+                cartTotal.textContent = '0 ريال';
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.price} ريال</p>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `${total} ريال`;
+        }
+
+        // Update quantity
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+            } else {
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    item.quantity = newQuantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartBadge();
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            updateCartDisplay();
+            showToast('تم إزالة المنتج من السلة', 'info');
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('السلة فارغة!', 'error');
+                return;
+            }
+            showToast('تم إرسال طلبك بنجاح!', 'success');
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            updateCartDisplay();
+            toggleCart();
+        }
+
+        // Generate stars
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let stars = '';
+
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    stars += '<i class="fas fa-star filled"></i>';
+                } else if (i === fullStars && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt filled"></i>';
+                } else {
+                    stars += '<i class="fas fa-star"></i>';
+                }
+            }
+
+            return stars;
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toastContainer.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Scroll effects
+        function setupScrollEffects() {
+            const header = document.getElementById('header');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'flex';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // Navigation
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+        }
+
+        // Utility functions
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        function submitContact(event) {
+            event.preventDefault();
+            showToast('تم إرسال رسالتك بنجاح!', 'success');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
