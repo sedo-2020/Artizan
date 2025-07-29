@@ -1,0 +1,84 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #fafdff;
+  color: #222;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  background: linear-gradient(90deg, #4f8cff 0%, #43e97b 100%);
+  color: #fff;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  box-shadow: 0 2px 8px #0001;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 0 0 24px 24px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.nav a {
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.nav a.active, .nav a:hover {
+  background: #e0f7fa;
+  color: #1976d2;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 2rem 1.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.chapter-img {
+  display: block;
+  margin: 2rem auto 1rem auto;
+  max-width: 350px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0001;
+  background: #f0f8ff;
+  transition: transform 0.3s;
+}
+.chapter-img:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  .header {
+    font-size: 1.3rem;
+    padding: 1rem 0 0.7rem 0;
+  }
+} 
